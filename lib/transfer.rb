@@ -18,19 +18,16 @@ class Transfer
   end
   
   
-  def execute_transaction
-    #binding.pry
-    
-    
-  # if !sender.valid   
-  #   @status == "rejected"
-    
+def execute_transaction
+  
+  
+  if @sender.valid? 
   if @status == "pending"
       @sender.deposit(@amount * -1)
       @receiver.deposit(@amount)
       @status = "complete"
       
-  elsif @status == "complete"
+  elsif @sender.valid? == "complete"
       @status == "rejected"
     
   elsif @amount > @sender.balance
