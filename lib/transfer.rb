@@ -25,9 +25,6 @@ def execute_transaction
       @sender.deposit(@amount * -1)
       @receiver.deposit(@amount)
       @status = "complete"
-      
-  elsif @sender.valid? == "complete"
-      @status == "rejected"
     
   else
     @status = "rejected"
