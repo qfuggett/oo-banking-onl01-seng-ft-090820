@@ -21,7 +21,7 @@ class Transfer
 def execute_transaction
   
   
-  if @sender > @amount 
+  if @sender > @amount && @status 
       @sender.deposit(@amount * -1)
       @receiver.deposit(@amount)
       @status = "complete"
